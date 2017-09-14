@@ -1,0 +1,26 @@
+//用户表
+ "create table User ("
+            + "code text primary key, "
+            + "username text, "
+            + "userpass text)";
+//分类表
+ "create table Booksort("
+    +"bookid text primary key,"
+            +"sortname text)";
+//书籍表
+"create table Book("
+         +"bookcode text primary key,"
+            +"bookname text,"
+            +"bookuser text,"
+            +"bookchuban text,"
+            +"ISBN text,"
+            +"sort text)";
+//笔记表
+"create table Note("
+         +"code text ,"
+            +"bookcode text,"
+            +"data text,"
+                    +"content text,"
+                    +"primary key(code,bookcode,data),"
+    +" FOREIGN KEY(code) REFERENCES User(code),"
+    + "FOREIGN KEY(bookcode) REFERENCES Book(bookcode))";
